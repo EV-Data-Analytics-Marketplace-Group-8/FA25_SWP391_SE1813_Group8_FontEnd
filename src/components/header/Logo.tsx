@@ -4,7 +4,7 @@ export default function Logo() {
     return (
         <div className="logo">
             <a href="/">
-                <span className="logo-mark">Data Marketplace</span>
+                <span className="logo-mark">⚡EV Market</span>
             </a>
         </div>
     );
