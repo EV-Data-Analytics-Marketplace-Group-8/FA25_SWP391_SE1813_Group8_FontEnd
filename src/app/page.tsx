@@ -1,10 +1,13 @@
 // src/app/page.tsx
+import React from "react";
 import Hero from "@/components/home/Hero";
 
-export default function HomePage() {
+export default function Page() {
   return (
-    <section>
-      <Hero />
-    </section>
+    <div>
+      <section className="container">
+        <Hero />
+      </section>
+    </div>
   );
 }

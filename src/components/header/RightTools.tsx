@@ -1,12 +1,14 @@
 // src/components/header/RightTools.tsx
+"use client";
 import React from "react";
+import Link from "next/link";
 
 export default function RightTools() {
     return (
         <div className="right-tools">
             <input className="search" placeholder="Search" />
-            <a className="signin" href="/login">Sign In</a>
-            <a className="register" href="/register">Register</a>
+            <Link className="signin" href="/login">Sign In</Link>
+            <Link className="register" href="/register">Register</Link>
         </div>
     );
 }

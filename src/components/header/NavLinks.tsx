@@ -1,18 +1,15 @@
 // src/components/header/NavLinks.tsx
 import React from "react";
-import MoreDropdown from "./MoreDropdown";
+import Link from "next/link";
 
 export default function NavLinks() {
+    const links = ["Competitions", "Datasets", "Models", "Code", "Discussions", "Blog", "Courses"];
     return (
         <ul className="nav-links">
-            <li><a href="#">Competitions</a></li>
-            <li><a href="#">Datasets</a></li>
-            <li><a href="#">Models</a></li>
-            <li><a href="#">Code</a></li>
-            <li><a href="#">Discussions</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><MoreDropdown /></li>
+            {links.map((t) => (
+                <li key={t}><Link href={`/${t.toLowerCase()}`}>{t}</Link></li>
+            ))}
+            <li><a href="#" onClick={(e) => e.preventDefault()}>⋯</a></li>
         </ul>
     );
 }
