@@ -1,0 +1,116 @@
+/* src/styles/auth.css */
+.auth-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  background: #ffffff;
+}
+
+/* Card */
+.auth-card {
+  width: 420px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 6px 18px rgba(15, 23, 36, 0.02);
+  padding: 28px 32px;
+}
+
+/* Logo + title */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.auth-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f1724;
+  margin: 8px 0 12px;
+}
+
+/* Tabs row */
+.auth-tabs {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  position: relative;
+}
+.auth-tab {
+  padding: 6px 2px;
+  font-weight:600;
+  color:#374151;
+  cursor:pointer;
+  position: relative;
+}
+.auth-tab.active {
+  color:#111827;
+}
+
+/* underline indicator */
+.auth-underline {
+  position:absolute;
+  height:4px;
+  width:80px;
+  bottom:-1px;
+  background:#111827;
+  border-radius:6px 6px 0 0;
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), width 220ms;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+/* Buttons vertical list */
+.auth-actions {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:10px;
+}
+
+/* shared button */
+.btn-auth {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  border-radius:999px;
+  border:1px solid #e6e6e6;
+  background:#fff;
+  cursor:pointer;
+  font-weight:700;
+  font-size:15px;
+  color:#111827;
+}
+.btn-auth:hover { box-shadow: 0 6px 14px rgba(2,6,23,0.04); }
+
+.btn-google svg { width:20px;height:20px; }
+.btn-email svg { width:18px;height:18px; }
+
+/* Footer small link */
+.auth-footer {
+  margin-top:16px;
+  text-align:center;
+  color:#6b7280;
+  font-size:14px;
+}
+.auth-footer a {
+  color:#111827;
+  font-weight:700;
+  text-decoration:underline;
+}
+
+/* small responsive */
+@media (max-width:480px){
+  .auth-card{ width: 92%; padding:20px }
+  .auth-title{ font-size:26px }
+}
