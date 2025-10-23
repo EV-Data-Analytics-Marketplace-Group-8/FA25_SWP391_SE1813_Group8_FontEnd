@@ -21,26 +21,46 @@ export function EmailIcon() {
     );
 }
 
-export default function AuthButtons({
-    onGoogle,
-    onEmail,
-    googleLabel,
-    emailLabel
-}: {
+type Props = {
     onGoogle?: () => void;
     onEmail?: () => void;
     googleLabel?: string;
     emailLabel?: string;
-}) {
+    disabled?: boolean;
+};
+
+export default function AuthButtons({
+    onGoogle,
+    onEmail,
+    googleLabel = "Sign in with Google",
+    emailLabel = "Sign in with Email",
+    disabled = false,
+}: Props) {
     return (
-        <div className="auth-actions">
-            <button className="btn-auth btn-google" onClick={onGoogle}>
-                <GoogleIcon />
+        <div className="auth-actions" role="group" aria-label="Authentication methods" style={{ marginTop: 8 }}>
+            <button
+                type="button"
+                className="btn-auth btn-google"
+                onClick={() => !disabled && onGoogle?.()}
+                aria-label={googleLabel}
+                disabled={disabled}
+            >
+                <span style={{ display: "inline-flex", alignItems: "center", width: 20, justifyContent: "center" }}>
+                    <GoogleIcon />
+                </span>
                 <span style={{ flex: 1, textAlign: "center" }}>{googleLabel}</span>
             </button>
 
-            <button className="btn-auth btn-email" onClick={onEmail}>
-                <EmailIcon />
+            <button
+                type="button"
+                className="btn-auth btn-email"
+                onClick={() => !disabled && onEmail?.()}
+                aria-label={emailLabel}
+                disabled={disabled}
+            >
+                <span style={{ display: "inline-flex", alignItems: "center", width: 20, justifyContent: "center" }}>
+                    <EmailIcon />
+                </span>
                 <span style={{ flex: 1, textAlign: "center" }}>{emailLabel}</span>
             </button>
         </div>
