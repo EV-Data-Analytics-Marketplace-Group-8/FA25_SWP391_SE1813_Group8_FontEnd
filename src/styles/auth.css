@@ -1,4 +1,6 @@
-/* src/styles/auth.css */
+/* src/styles/auth.css - polished but compatible with original look */
+
+/* page container */
 .auth-page {
   min-height: 80vh;
   display: flex;
@@ -6,19 +8,26 @@
   justify-content: center;
   padding: 48px 16px;
   background: #ffffff;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
 /* Card */
 .auth-card {
   width: 420px;
   background: #fff;
-  border-radius: 18px;
+  border-radius: 14px;
   border: 1px solid #e6e6e6;
-  box-shadow: 0 6px 18px rgba(15, 23, 36, 0.02);
+  box-shadow: 0 8px 30px rgba(15, 23, 36, 0.04);
   padding: 28px 32px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-/* Logo + title */
+.auth-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(15, 23, 36, 0.06);
+}
+
+/* Logo & title */
 .auth-logo {
   display: flex;
   align-items: center;
@@ -28,7 +37,7 @@
 }
 .auth-title {
   text-align: center;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 800;
   color: #0f1724;
   margin: 8px 0 12px;
@@ -51,12 +60,16 @@
   color:#374151;
   cursor:pointer;
   position: relative;
+  background: none;
+  border: none;
+  font-size: 15px;
 }
+.auth-tab:focus { outline: none; }
 .auth-tab.active {
   color:#111827;
 }
 
-/* underline indicator */
+/* underline indicator (if you choose to use it) */
 .auth-underline {
   position:absolute;
   height:4px;
@@ -69,7 +82,7 @@
   transform:translateX(-50%);
 }
 
-/* Buttons vertical list */
+/* Buttons vertical list (AuthButtons) */
 .auth-actions {
   display:flex;
   flex-direction:column;
@@ -90,27 +103,113 @@
   font-weight:700;
   font-size:15px;
   color:#111827;
+  transition: box-shadow .18s ease, transform .12s ease, background .12s ease;
 }
-.btn-auth:hover { box-shadow: 0 6px 14px rgba(2,6,23,0.04); }
+.btn-auth:active { transform: translateY(1px); }
+.btn-auth:disabled { opacity: 0.6; cursor: not-allowed; }
 
-.btn-google svg { width:20px;height:20px; }
-.btn-email svg { width:18px;height:18px; }
+/* Google style (light) */
+.btn-google {
+  background: #fff;
+  color: #111827;
+}
+.btn-google:hover { box-shadow: 0 8px 20px rgba(2,6,23,0.04); }
 
-/* Footer small link */
+/* Email style (dark filled) */
+.btn-email {
+  background: #111827;
+  color: #fff;
+  border: none;
+}
+.btn-email:hover { opacity: 0.95; }
+
+/* SVG sizing helpers inside buttons */
+.btn-google svg, .btn-email svg { width: 20px; height: 20px; }
+
+/* Form layout (SignIn / Register email forms) */
+.auth-form {
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+.form-group {
+  display:flex;
+  flex-direction: column;
+  gap: 6px;
+}
+label.field-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;
+  letter-spacing: 0.4px;
+}
+.input-field {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+  color: #0f1724;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.input-field:focus {
+  border-color: #111827;
+  box-shadow: 0 4px 18px rgba(17,24,39,0.06);
+}
+
+/* helper / small text */
+.helper {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* footer actions (Back + primary) */
 .auth-footer {
-  margin-top:16px;
-  text-align:center;
-  color:#6b7280;
-  font-size:14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  gap: 12px;
 }
-.auth-footer a {
-  color:#111827;
-  font-weight:700;
-  text-decoration:underline;
+.btn-back {
+  background: transparent;
+  border: none;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
 }
+.btn-back:hover { color: #2563eb; text-decoration: underline; }
 
-/* small responsive */
-@media (max-width:480px){
+.btn-primary {
+  background: #111827;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #0f1724; transform: translateY(-1px); }
+
+/* forgot link */
+.forgot-row {
+  display:flex;
+  justify-content:flex-end;
+  margin-top:6px;
+}
+.link {
+  color: #111827;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+}
+.link:hover { text-decoration: underline; }
+
+/* responsive */
+@media (max-width:480px) {
   .auth-card{ width: 92%; padding:20px }
-  .auth-title{ font-size:26px }
+  .auth-title{ font-size:20px }
+  .btn-auth { font-size: 14px; padding:10px 12px; }
 }

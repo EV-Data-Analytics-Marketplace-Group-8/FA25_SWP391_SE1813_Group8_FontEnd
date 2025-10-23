@@ -1,12 +1,6 @@
 import React from "react";
-import AuthCard from "../../components/auth/AuthCard";
-
-
-import "../../styles/auth.css";
-
-export const metadata = {
-    title: "Sign In - EV Market",
-};
+import AuthCard from "@/components/auth/AuthCard";
+import "@/styles/auth.css";
 
 export default function LoginPage() {
     return (
